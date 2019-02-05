@@ -2,6 +2,11 @@
 import discord
 from discord.ext import commands
 import re
+import string
+string.letters
+'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+def random_char(y):
+       return ''.join(random.choice(string.letters) for x in range(y))
 
 from tokenfile import TOKEN
 
@@ -43,7 +48,8 @@ async def dadjoke(message):
                 if len(word) > 32:
                     word = '<LONG DADJOKE>'
                 await bot.change_nickname(message.author, word)
-                await bot.send_message(message.channel, 'Hi {}, I\'m dad!'.format(word))
+                
+                await bot.send_message(message.channel, 'Hi ' + random_char(13) + ', I\'m dead!'.format(word))
             else:
                 await bot.send_message(message.server.default_channel,
                                        'Hey! Who stole my pencil! I can\'t nick anyone!')
